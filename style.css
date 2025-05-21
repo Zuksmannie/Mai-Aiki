@@ -132,6 +132,7 @@ a{
     flex-direction: row;
     justify-content:flex-start ;
     align-items: start;
+    gap: 14rem;
 }
 
 .hero-text{
@@ -143,6 +144,47 @@ a{
     margin-top: 2rem;
     animation: slideInUp 0.5s ease-in-out;
 }
+
+
+.form-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: 300px;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+ .form-cta {
+    width: 100%;
+    padding: 0.7rem;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .form-cta:hover {
+    background-color: #2980b9;
+  }
 
 .about{
     width: 100%;
