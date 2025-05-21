@@ -357,3 +357,135 @@ img{
     justify-content: center;
     align-items: center;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 1024px) {
+    .container,
+    .container2,
+    .container3,
+    .container4,
+    .container5 {
+      flex-direction: column;
+      padding: 20px;
+      gap: 2rem;
+    }
+  
+    .navmenu a {
+      margin-right: 15px;
+      font-size: 16px;
+    }
+  
+    .hero-text h1 {
+      font-size: 2rem;
+      text-align: center;
+    }
+  
+    .hero-body {
+      text-align: center;
+      font-size: 1rem;
+    }
+  
+    .form-container {
+      width: 100%;
+    }
+  
+    .how-cards,
+    .why-cards-wrapper {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+  
+    .why-cards {
+      flex-direction: column;
+    }
+  }
+
+
+
+
+
+
+
+
+
+  @media (max-width: 768px) {
+    .nav {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .navmenu {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 10px;
+    }
+  
+    .navcta button {
+      margin-top: 10px;
+      width: 100%;
+    }
+  
+    .hero-section {
+      padding: 20px;
+    }
+  
+    .hero-text h1 {
+      font-size: 1.6rem;
+      line-height: 1.4;
+    }
+  
+    .hero-cta-box {
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+    }
+  
+    .form-container {
+      width: 100%;
+      padding: 15px;
+    }
+  
+    .form-group {
+      width: 100%;
+    }
+  
+    .about,
+    .how,
+    .why {
+      padding: 20px 15px;
+    }
+  
+    .image-box img {
+      width: 100%;
+      height: auto;
+    }
+  
+    .how-cards,
+    .why-cards-wrapper {
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+  
+    .why-cards {
+      flex-direction: column;
+    }
+  
+    .h-cta button,
+    .w-cta button {
+      width: 100%;
+    }
+  }
+  
