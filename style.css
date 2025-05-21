@@ -1,7 +1,13 @@
 body{
     background-color: #f7f7f7;
     font-family: satoshi;
+    overflow-x: hidden;
 }
+
+html {
+    overflow-x: hidden;
+   
+  }
 
 h1{
     font-size: 3rem;
@@ -151,7 +157,7 @@ a{
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    width: 300px;
+    width: 100%;
   }
 
   .form-group {
@@ -425,9 +431,8 @@ img{
     .container4,
     .container5 {
         width: 90%;
+        height: auto;
       flex-direction: column;
-      padding: 20px;
-      gap: 2rem;
     }
     
     .nav {
@@ -448,6 +453,10 @@ img{
       margin-top: 10px;
       width: 100%;
     }
+
+    h1{
+        text-align: left;
+    }
   
     .hero-section {
         width: 100%;
@@ -456,7 +465,7 @@ img{
         flex-direction: column;
         justify-content: center;
         align-items: center;
-      padding: 20px;
+        padding: 20px 0px;
     }
 
     .container2{
@@ -471,6 +480,7 @@ img{
     .hero-text h1 {
       font-size: 1.6rem;
       line-height: 1.4;
+      text-align: left;
     }
   
     .hero-cta-box {
@@ -481,33 +491,69 @@ img{
   
     .form-container {
       width: 100%;
-      padding: 15px;
+      padding: 1rem 0.5rem;
+      display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
     }
   
     .form-group {
-      width: 100%;
+      width: 90%;
     }
   
     .about,
     .how,
     .why {
-      padding: 20px 15px;
+      padding: 1rem 0rem;
+      width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .text-box{
+        width: 100%;
     }
   
-    .image-box img {
+    .image-box  {
       width: 100%;
       height: auto;
+    }
+
+    img{
+        width: 100%;
+
     }
   
     .how-cards,
     .why-cards-wrapper {
+        width: 100%;
       flex-direction: column;
       align-items: center;
-      gap: 1.5rem;
+      gap: 1rem;
+    }
+
+    .how-card{
+        width: 90%;
+        /* margin: 0.5rem; */
     }
   
     .why-cards {
+        width: 100%;
       flex-direction: column;
+      gap:  1rem;
+      margin-top: 0rem;
+    }
+
+    .why-card{
+        width: 90%;
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem;
     }
   
     .h-cta button,
