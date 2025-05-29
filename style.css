@@ -348,6 +348,7 @@ img{
 
 .why-text-box{
   margin-top: 0.5rem;
+
 }
 
 .w-card-text{
@@ -361,12 +362,18 @@ img{
     height: auto;
 }
 
-.w-cta{
+.w-cta-box{
     margin-top: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.w-cta{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 
