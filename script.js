@@ -1,43 +1,46 @@
-document.getElementById("form").addEventListener("submit", function(e) {
-  e.preventDefault();
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("form");
 
-  const form = e.target;
-  const errand = document.getElementById("errand").value;
-  const pickup = document.getElementById("pickup").value;
-  const delivery = document.getElementById("delivery").value;
-  const phone = document.getElementById("phonenumber").value;
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-  if (!errand || !pickup || !delivery || !phone) {
-    alert("Please fill in all the fields.");
-    return;
-  }
+    const errand = document.getElementById("errand").value;
+    const pickup = document.getElementById("pickup").value;
+    const delivery = document.getElementById("delivery").value;
+    const phone = document.getElementById("phonenumber").value;
 
-  let amount = 0;
-  if (errand === "Food Delivery") amount = 1000;
-  else if (errand === "Document Delivery") amount = 1500;
-  else if (errand === "Parcel Pickup") amount = 2000;
-
-  amount *= 100; // Convert to kobo
-
-  const handler = PaystackPop.setup({
-    key: 'pk_test_1234567890abcdef1234567890abcdef12345678', // Replace with your test/live key
-    email: 'student@maiaiki.com', // Temporary email just for Paystack, can be static
-    amount: amount,
-    currency: 'NGN',
-    ref: 'MAIK-' + Math.floor((Math.random() * 1000000000) + 1),
-    callback: function(response) {
-      const refInput = document.createElement("input");
-      refInput.type = "hidden";
-      refInput.name = "payment_reference";
-      refInput.value = response.reference;
-      form.appendChild(refInput);
-
-      form.submit();
-    },
-    onClose: function() {
-      alert('Transaction cancelled');
+    if (!errand || !pickup || !delivery || !phone) {
+      alert("Please fill in all the fields.");
+      return;
     }
-  });
 
-  handler.openIframe();
+    let amount = 0;
+    if (errand === "Food Delivery") amount = 1000;
+    else if (errand === "Document Delivery") amount = 1500;
+    else if (errand === "Parcel Pickup") amount = 2000;
+
+    amount *= 100; // Convert to Kobo
+
+    const handler = PaystackPop.setup({
+      key: 'pk_test_1234567890abcdef1234567890abcdef12345678', // Replace this with your public key
+      email: 'student@maiaiki.com', // Just a placeholder for Paystack
+      amount: amount,
+      currency: 'NGN',
+      ref: 'MAIK-' + Math.floor(Math.random() * 1000000000 + 1),
+      callback: function (response) {
+        const refInput = document.createElement("input");
+        refInput.type = "hidden";
+        refInput.name = "payment_reference";
+        refInput.value = response.reference;
+        form.appendChild(refInput);
+
+        form.submit(); // Only submit after successful payment
+      },
+      onClose: function () {
+        alert("Transaction cancelled");
+      }
+    });
+
+    handler.openIframe();
+  });
 });
