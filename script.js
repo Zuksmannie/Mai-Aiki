@@ -10,8 +10,7 @@
   });
 
 
-    <!-- Paystack Script -->
-        document.getElementById("errandForm").addEventListener("submit", function(e) {
+        document.getElementById("form").addEventListener("submit", function(e) {
             e.preventDefault();
             const form = e.target;
 
