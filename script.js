@@ -1,39 +1,43 @@
+document.getElementById("form").addEventListener("submit", function(e) {
+  e.preventDefault();
 
- document.getElementById("form").addEventListener("submit", function(e) {
-    e.preventDefault();
+  const form = e.target;
+  const errand = document.getElementById("errand").value;
+  const pickup = document.getElementById("pickup").value;
+  const delivery = document.getElementById("delivery").value;
+  const phone = document.getElementById("phonenumber").value;
 
-    const form = e.target;
-    const errand = document.getElementById("errand").value;
-    const pickup = document.getElementById("pickup").value;
-    const delivery = document.getElementById("delivery").value;
-    const phone = document.getElementById("phonenumber").value;
+  if (!errand || !pickup || !delivery || !phone) {
+    alert("Please fill in all the fields.");
+    return;
+  }
 
-    if (!errand || !pickup || !delivery || !phone) {
-        alert("Please fill in all the fields.");
-        return;
+  let amount = 0;
+  if (errand === "Food Delivery") amount = 1000;
+  else if (errand === "Document Delivery") amount = 1500;
+  else if (errand === "Parcel Pickup") amount = 2000;
+
+  amount *= 100; // Convert to kobo
+
+  const handler = PaystackPop.setup({
+    key: 'pk_test_1234567890abcdef1234567890abcdef12345678', // Replace with your test/live key
+    email: 'student@maiaiki.com', // Temporary email just for Paystack, can be static
+    amount: amount,
+    currency: 'NGN',
+    ref: 'MAIK-' + Math.floor((Math.random() * 1000000000) + 1),
+    callback: function(response) {
+      const refInput = document.createElement("input");
+      refInput.type = "hidden";
+      refInput.name = "payment_reference";
+      refInput.value = response.reference;
+      form.appendChild(refInput);
+
+      form.submit();
+    },
+    onClose: function() {
+      alert('Transaction cancelled');
     }
+  });
 
-    const handler = PaystackPop.setup({
-        key: 'your-paystack-public-key', // Replace with your actual public key
-        email: 'customer@email.com',     // You can dynamically attach email if available
-        amount: 1000 * 100,              // Amount in Kobo
-        currency: 'NGN',
-        ref: 'MAIK-' + Math.floor((Math.random() * 1000000000) + 1),
-        callback: function(response) {
-            // Add reference to form before submitting
-            const refInput = document.createElement("input");
-            refInput.type = "hidden";
-            refInput.name = "payment_reference";
-            refInput.value = response.reference;
-            form.appendChild(refInput);
-
-            // Now submit to FormSubmit
-            form.submit();
-        },
-        onClose: function() {
-            alert('Transaction cancelled');
-        }
-    });
-
-    handler.openIframe();
+  handler.openIframe();
 });
