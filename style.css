@@ -321,7 +321,7 @@ img{
     margin-top: 2rem;
     justify-content: space-between;
     align-items: center;
-    gap: 0.5rem;
+    gap: 1.5rem;
     
 }
 
@@ -343,6 +343,11 @@ img{
     flex-direction: column;
     width: 100%;
     height: auto;
+    margin-top: 2rem;
+}
+
+.why-text-box{
+  margin-top: 0.5rem;
 }
 
 .w-card-text{
@@ -412,7 +417,11 @@ img{
     }
   
     .why-cards {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
       flex-direction: column;
+      gap: 2rem;
     }
   }
 
